@@ -61,4 +61,5 @@ export default class extends React.Component {
 //   )
 // }
 
+
 // export default StudCard
