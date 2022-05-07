@@ -1,6 +1,8 @@
 import React from 'react'
 // import './styles.css'
 
+const timeInterval = 100
+
 export default class ReacTimer extends React.Component {
   constructor(props) {
     super(props)
@@ -10,9 +12,7 @@ export default class ReacTimer extends React.Component {
     }
   }
 
-  componentDidMount() {
-    this.timerID = setInterval(() => this.increment(), 1000);
-  }
+  componentDidMount() {}
 
   componentDidUpdate() {}
 
@@ -20,54 +20,51 @@ export default class ReacTimer extends React.Component {
     clearInterval(this.timerID)
   }
 
-  
-
   handleStart = () => {
-    const time = Date.now()
-    const sek = Math.floor((time / 1000) % 60)
+    this.timerStart()
 
-    this.state.count = sek
-
-    const min = Math.floor((time / (1000 * 60)) % 60)
-
-    if (sek < 10 && min < 10) {
-      const answer = `0${min}:0${sek}`
-      this.setState({count: answer});
-    }
-
-    if (sek < 10) {
-      const answer = `${min}:0${sek}`
-      this.setState({count: answer});
-    }
-
-    if (min < 10) {
-      const answer = `0${min}:${sek}`
-      this.setState({count: answer});
-    }
-
-    this.setState({isCounting: true});
+    this.setState({ isCounting: true })
   }
 
   handleStop = () => {
-    this.setState({count: 0});
-    this.setState({isCounting: false});  
+    this.timerStop()
+    this.setState({ isCounting: false })
   }
 
   handleReset = () => {
-    this.setState({count: 0});
-    this.setState({isCounting: false});  
-    
+    this.timerReset()
+    this.setState({ count: 0 })
+    this.setState({ isCounting: false })
   }
 
-  increment() {
+  increment = () => {
     this.setState((prevState) => ({ count: prevState.count + 1 }))
-}
+  }
+
+  timerStart() {
+    this.timerId = setInterval(() => this.increment(), 1000 / timeInterval)
+  }
+
+  timerStop() {
+    clearInterval(this.timerId)
+  }
+
+  timerReset() {
+    this.setState({ count: 0 })
+    clearInterval(this.timerId)
+  }
 
   render() {
+    const timeValue = this.state.count
     return (
       <div className="ReacTimer">
         <h1>React Timer</h1>
-        <h3>{this.state.count}</h3>
+        <div>
+          {`${Math.round(timeValue / timeInterval / 60 / 60)}`} :{' '}
+          {`${Math.round(timeValue / timeInterval / 60)}`} :
+          {`${Math.round(timeValue / timeInterval)}`} :{' '}
+          {`${timeValue % timeInterval}`}{' '}
+        </div>
         {!this.state.isCounting ? (
           <button type="button" onClick={this.handleStart}>
             Start
