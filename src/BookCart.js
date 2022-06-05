@@ -1,9 +1,8 @@
-/* eslint-disable no-param-reassign */
-/* eslint-disable no-return-assign */
 import { useState } from 'react'
+import { Link} from 'react-router-dom'
 import MinMax from './MinMax'
-import TotalPrice from './TotalPrice' 
-import LoginPass from './LoginPass'
+import GeneralCart from './GeneralCart' 
+// import LoginPass from './page/LoginPass'
 
 function booksStub() {
   return [
@@ -97,15 +96,13 @@ export default function BookCart() {
             </tr>
           ))}
         </tbody>
-        <TotalPrice
-          booksCart={books.reduce(
-            (result, book) =>
-              (result += Number(book.price) * Number(book.quantity)),
-            0
-          )}
-        />
+
       </table>
-      <LoginPass/ >
+      <GeneralCart
+        booksArray = {books}
+        />
+      <Link to="/login-pass">Login Pass</Link>
+      <Link to="/about">About</Link>
     </div>
   )
 }
