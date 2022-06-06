@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import { Link} from 'react-router-dom'
-import MinMax from './MinMax'
+// import MinMax from './MinMax'
 import GeneralCart from './GeneralCart' 
+import MinMaxLazy from './components/MinMaxLazy'
 // import LoginPass from './page/LoginPass'
+import FormReact from './FormReact'
 
 function booksStub() {
   return [
@@ -75,10 +77,11 @@ export default function BookCart() {
               <td>{book.title}</td>
               <td>{book.price}</td>
               <td>
-                <MinMax
+                <MinMaxLazy
                   max={book.rest}
                   current={book.quantity}
                   onChange={(quantity) => setQuantity(book.id, quantity)}
+                  onBlur={(quantity) => setQuantity(book.id, quantity)}
                 />
               </td>
               <td>{book.price * book.quantity}</td>
@@ -101,6 +104,8 @@ export default function BookCart() {
       <GeneralCart
         booksArray = {books}
         />
+      <FormReact/>
+      
       <Link to="/login-pass">Login Pass</Link>
       <Link to="/about">About</Link>
     </div>

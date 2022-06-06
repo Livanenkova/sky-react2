@@ -13,15 +13,13 @@ import LoginPass from './page/LoginPass'
 
 function App() {
   return (
-    <main>
     <Routes>
-      
       <Route path="/about" element={<About />} />
       <Route path="/login-pass" element={<LoginPass />} />
       <Route path="*" element={<Error404 />} />
       <Route path="/" element={<BookCart />} />
     </Routes>
-  </main>
+
   
   )
 }
