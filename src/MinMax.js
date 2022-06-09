@@ -1,4 +1,8 @@
-function MinMax({ min = 1, max, current, onChange }) {
+/* eslint-disable react/no-typos */
+import PropTypes from "prop-types"
+
+function MinMax(props) {
+  const {min, max, current, onChange} = props;
   // валидация инпута
   function applyCurrent(num) {
     const validNum = Math.max(min, Math.min(max, num))
@@ -26,5 +30,17 @@ function MinMax({ min = 1, max, current, onChange }) {
     </div>
   )
 }
+
+MinMax.PropTypes = {
+  min: PropTypes.number,
+  max: PropTypes.number.isRequired,
+  current: PropTypes.number.isRequired,
+  onChange: PropTypes.func.isRequired
+}
+
+MinMax.defaultProps = {
+  min: 1,
+}
+
 
 export default MinMax
