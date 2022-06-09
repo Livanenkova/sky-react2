@@ -18,20 +18,6 @@ function LoginPass() {
     }));
   };
 
-  // function setValueLogin(e) {
-  //   setInputField({login: e.target.value })
-  //   // const required = false;
-  //   // const result = isInputRequired.onChange(inputValue.login, required)
-  //   // errorMessageSet(result)
-  // }
-
-  // function setValuePassword(e){
-  //   setInputField({password: e.target.value })
-  //   // const required = false;
-  //   // const result = isInputRequired.onChange(inputValue.password, required)
-  //   // errorMessageSet(result)
-  // }
-
   const submitButton = () => {
     if(!/@/.test(inputValue.login) && !/.com/.test(inputValue.login) ) {
       errorMessageSet(`Логин должен быть примерно таким "@domain.com"`)
@@ -43,16 +29,6 @@ function LoginPass() {
       errorMessageSet(`Ваш логин: ${inputValue.login}  Ваш пароль: ${inputValue.password}`)
     }
   }
-    
-
-
-
-  // function setError(e) {
-  //   const userValue = e.target.value
-  //   const required = false;
-  //   const result = isInputRequired.onBlur(userValue, required)
-  //   errorMessageSet(result)
-  // }
   
     return (
     <div className="listView">
