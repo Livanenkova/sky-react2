@@ -1,6 +1,5 @@
 import  { useState } from "react";
 import { Link} from 'react-router-dom'
-// import useInputRequired from "../useInputRequaried"
 
 function LoginPass() {
   const [errorMessageStr, errorMessageSet] = useState('');
@@ -9,7 +8,6 @@ function LoginPass() {
     password: '',
   })
   
-  // const isInputRequired = useInputRequired();
 
   const inputHandler = (e) => {
     setInputField(() => ({
@@ -41,7 +39,7 @@ function LoginPass() {
       <input type="password" name="password" onChange={inputHandler} className="password" placeholder='password' id='password'/>
       </label>
       <div>{errorMessageStr}</div>
-      <button type="button" onClick={submitButton}>
+      <button type="button" onClick={submitButton} style={{width: "150px"}} >
             Залогиниться
         </button>
       <Link to="/">Main Page</Link>
