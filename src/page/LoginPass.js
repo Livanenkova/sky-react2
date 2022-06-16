@@ -1,6 +1,5 @@
 import  { useState } from "react";
 import { Link} from 'react-router-dom'
-// import useInputRequired from "../useInputRequaried"
 
 function LoginPass() {
   const [errorMessageStr, errorMessageSet] = useState('');
@@ -9,7 +8,6 @@ function LoginPass() {
     password: '',
   })
   
-  // const isInputRequired = useInputRequired();
 
   const inputHandler = (e) => {
     setInputField(() => ({
@@ -17,20 +15,6 @@ function LoginPass() {
       [e.target.name]: e.target.value,
     }));
   };
-
-  // function setValueLogin(e) {
-  //   setInputField({login: e.target.value })
-  //   // const required = false;
-  //   // const result = isInputRequired.onChange(inputValue.login, required)
-  //   // errorMessageSet(result)
-  // }
-
-  // function setValuePassword(e){
-  //   setInputField({password: e.target.value })
-  //   // const required = false;
-  //   // const result = isInputRequired.onChange(inputValue.password, required)
-  //   // errorMessageSet(result)
-  // }
 
   const submitButton = () => {
     if(!/@/.test(inputValue.login) && !/.com/.test(inputValue.login) ) {
@@ -43,16 +27,6 @@ function LoginPass() {
       errorMessageSet(`Ваш логин: ${inputValue.login}  Ваш пароль: ${inputValue.password}`)
     }
   }
-    
-
-
-
-  // function setError(e) {
-  //   const userValue = e.target.value
-  //   const required = false;
-  //   const result = isInputRequired.onBlur(userValue, required)
-  //   errorMessageSet(result)
-  // }
   
     return (
     <div className="listView">
@@ -65,7 +39,7 @@ function LoginPass() {
       <input type="password" name="password" onChange={inputHandler} className="password" placeholder='password' id='password'/>
       </label>
       <div>{errorMessageStr}</div>
-      <button type="button" onClick={submitButton}>
+      <button type="button" onClick={submitButton} style={{width: "150px"}} >
             Залогиниться
         </button>
       <Link to="/">Main Page</Link>

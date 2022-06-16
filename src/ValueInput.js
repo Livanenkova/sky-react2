@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 import React from 'react'
 
 export default class extends React.Component {
@@ -14,7 +15,6 @@ export default class extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log(`Отправленное имя:${this.state.value}`);
     event.preventDefault();
   }
 

@@ -160,3 +160,15 @@ h4 {
   flex-direction: column;
   margin-top: 20px;
 }
+
+.NumberGenerator__wrap{
+  display: flex;
+  flex-wrap: wrap;
+  width: 350px;
+  gap: 1px;
+  margin: auto;
+}
+
+.NumberGenerator__item:hover {
+  color: white;
+}

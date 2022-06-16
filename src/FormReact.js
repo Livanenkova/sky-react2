@@ -1,5 +1,6 @@
 /* eslint-disable prefer-destructuring */
 import { useState } from "react"
+import PropTypes from "prop-types"
 
 function getText(number) {
   let text;
@@ -39,6 +40,10 @@ function FormReact() {
     <div className="form-text">{text}</div>
     </div>
   )
+}
+
+getText.PropTypes = {
+  number: PropTypes.number.isRequired,
 }
 
 export default  FormReact
