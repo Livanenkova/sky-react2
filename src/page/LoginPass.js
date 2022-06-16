@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import  { useState,useRef } from "react";
 import { Link} from 'react-router-dom'
 // import useInputRequired from "../useInputRequaried"
 
@@ -8,8 +8,9 @@ function LoginPass() {
     login: '',
     password: '',
   })
-  
-  // const isInputRequired = useInputRequired();
+
+  const loginRef = useRef(null)
+  const passwordRef = useRef(null)
 
   const inputHandler = (e) => {
     setInputField(() => ({
@@ -18,54 +19,36 @@ function LoginPass() {
     }));
   };
 
-  // function setValueLogin(e) {
-  //   setInputField({login: e.target.value })
-  //   // const required = false;
-  //   // const result = isInputRequired.onChange(inputValue.login, required)
-  //   // errorMessageSet(result)
-  // }
-
-  // function setValuePassword(e){
-  //   setInputField({password: e.target.value })
-  //   // const required = false;
-  //   // const result = isInputRequired.onChange(inputValue.password, required)
-  //   // errorMessageSet(result)
-  // }
-
   const submitButton = () => {
-    if(!/@/.test(inputValue.login) && !/.com/.test(inputValue.login) ) {
-      errorMessageSet(`Логин должен быть примерно таким "@domain.com"`)
-    
-    } else if(inputValue.password.length < 5) {
-      errorMessageSet(`Пароль должен быть больше 6 символов!`)
+    if(!/@/.test(inputValue.login) && !/.com/.test(loginRef.current.value)){
+      loginRef.current.focus()
+      errorMessageSet(`Логин должен быть примерно таким "@domain.com"`);
+      loginRef.current.style.border=" 3px solid red";
+    } else if(passwordRef.current.value.length < 5) {
+
+      passwordRef.current.focus()
+      passwordRef.current.style.border=" 3px solid red";
+      errorMessageSet(`Пароль должен быть длиннее 6 символов!`);
     
     } else {
-      errorMessageSet(`Ваш логин: ${inputValue.login}  Ваш пароль: ${inputValue.password}`)
+      errorMessageSet(`Ваш логин: ${inputValue.login}  Ваш пароль: ${inputValue.password}`);
+      loginRef.current.style.border="1px solid grey";
+      passwordRef.current.style.border="1px solid grey";
     }
   }
-    
-
-
-
-  // function setError(e) {
-  //   const userValue = e.target.value
-  //   const required = false;
-  //   const result = isInputRequired.onBlur(userValue, required)
-  //   errorMessageSet(result)
-  // }
   
     return (
     <div className="listView">
       <label htmlFor='login'>
         Логин:
-      <input type="email"   name="login"  onChange={inputHandler}  className="login" placeholder='login' id='login'/>
+      <input type="email" ref={loginRef} name="login"  onChange={inputHandler}  className="login" placeholder='login' id='login'/>
       </label>
       <label htmlFor='password'>
         Пароль:
-      <input type="password" name="password" onChange={inputHandler} className="password" placeholder='password' id='password'/>
+      <input type="password" ref={passwordRef} name="password" onChange={inputHandler} className="password" placeholder='password' id='password'/>
       </label>
       <div>{errorMessageStr}</div>
-      <button type="button" onClick={submitButton}>
+      <button type="button" onClick={submitButton} style={{width:"150px"}}>
             Залогиниться
         </button>
       <Link to="/">Main Page</Link>

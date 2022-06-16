@@ -45,16 +45,12 @@ export default class Order extends React.Component {
   }
 
   IncrementQuantityWithPrice(e, index,price) {
-
-    console.log(index)
-    console.log(index)
     e.preventDefault() 
     this.setState(state => ({quantity: state.quantity + 1}))
     this.setState(state => ({amount: state.amount + price }))
 
     
     const data = this.state.details.map((details) => {
-      console.log(data)
       if (details.id === index) {
             // this.setState(state => ({details.quantity: state.details.quantity + 1}))
         return {
@@ -74,7 +70,6 @@ export default class Order extends React.Component {
   }
 
   DecrementQuantityWithPrice(e, index,price) {
-    console.log(index)
     e.preventDefault()
     // this.setState((prevState) => ({ quantity: prevState.state.quantity - 1 }))
     // this.setState(state => ({quantity: state.quantity -1}))

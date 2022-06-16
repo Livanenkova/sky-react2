@@ -22,8 +22,6 @@ export default class extends React.Component {
     this.setState((prevState) => ({ curCount: prevState.curCount   }))
   }
 
-
-
   render() {
     return (
       <div>        

@@ -9,7 +9,7 @@ export default class extends React.Component {
   render() {
     return (
       <div>
-        <input type="text" placeholder='Максимальное значение' />
+        <input type="text" placeholder="Максимальное значение" />
         <span>{this.state.current}</span>
       </div>
     )
