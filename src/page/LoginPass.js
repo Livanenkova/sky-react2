@@ -1,6 +1,5 @@
 import  { useState,useRef } from "react";
 import { Link} from 'react-router-dom'
-// import useInputRequired from "../useInputRequaried"
 
 function LoginPass() {
   const [errorMessageStr, errorMessageSet] = useState('');
@@ -8,9 +7,13 @@ function LoginPass() {
     login: '',
     password: '',
   })
+<<<<<<< HEAD
 
   const loginRef = useRef(null)
   const passwordRef = useRef(null)
+=======
+  
+>>>>>>> ea188218e1e84e92cc78e78d555b33d2ffacfdc1
 
   const inputHandler = (e) => {
     setInputField(() => ({
@@ -48,7 +51,11 @@ function LoginPass() {
       <input type="password" ref={passwordRef} name="password" onChange={inputHandler} className="password" placeholder='password' id='password'/>
       </label>
       <div>{errorMessageStr}</div>
+<<<<<<< HEAD
       <button type="button" onClick={submitButton} style={{width:"150px"}}>
+=======
+      <button type="button" onClick={submitButton} style={{width: "150px"}} >
+>>>>>>> ea188218e1e84e92cc78e78d555b33d2ffacfdc1
             Залогиниться
         </button>
       <Link to="/">Main Page</Link>
