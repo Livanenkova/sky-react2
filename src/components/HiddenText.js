@@ -1,4 +1,4 @@
-import  { useState} from "react";
+import  {useState} from "react";
 import ColorSquad from "./ColorSquad";
 
 const text = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, in quo! Itaque excepturi magnam in ipsum odit aperiam harum? Consequatur corrupti quisquam dolores recusandae eligendi aut, ipsum aperiam repellendus cumque.'

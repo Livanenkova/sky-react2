@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { Link} from 'react-router-dom'
+import {useState} from 'react'
+import {Link} from 'react-router-dom'
 import GeneralCart from '../GeneralCart' 
 import MinMaxLazy from '../components/MinMaxLazy'
 import FormReact from '../FormReact'
@@ -105,9 +105,9 @@ export default function BookCart() {
       <FormReact/>
       <Link to="/login-pass">Login Pass</Link>
       <Link to="/about">About</Link>
-      <Link to="/number-generator">NumberGenerator</Link>
-      <Link to="/hidden-text">HiddenText</Link>
-
+      <Link to="/number-generator">Number Generator</Link>
+      <Link to="/hidden-text">Hidden Text</Link>
+      <Link to="/console-app">Console App</Link>
     </div>
   )
 }

@@ -9,6 +9,7 @@ import Error404 from './page/Error404'
 import LoginPass from './page/LoginPass'
 import NumberGenerator from './page/NumberGenerator'
 import HiddenText from './components/HiddenText'
+import ConsoleApp from './page/ConsoleApp'
 
 // import { Router } from 'react-router-dom'
 
@@ -23,7 +24,7 @@ function App() {
       <Route path="/" element={<BookCart />} />
       <Route path="/number-generator" element={<NumberGenerator />} />
       <Route path="/hidden-text" element={<HiddenText />} />
-
+      <Route path="/console-app" element={<ConsoleApp />} />
     </Routes>
 
   
