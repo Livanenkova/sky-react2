@@ -22,8 +22,6 @@ class Clicker extends React.Component {
   }
 
   render() {
-    // console.log(this.state.countClick)
-    // console.log(this.state.countSubmit)
     return (
       <div>
         <form onSubmit={this.handleSubmit}>

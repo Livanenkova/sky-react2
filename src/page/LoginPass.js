@@ -1,5 +1,5 @@
-import  {useState,useRef} from "react";
-import {Link} from 'react-router-dom'
+import  { useState } from "react";
+import { Link} from 'react-router-dom'
 
 function LoginPass() {
   const [errorMessageStr, errorMessageSet] = useState('');
@@ -47,6 +47,7 @@ function LoginPass() {
       <input type="password" ref={passwordRef} name="password" onChange={inputHandler} className="password" placeholder='password' id='password'/>
       </label>
       <div>{errorMessageStr}</div>
+
       <button type="button" onClick={submitButton} style={{width:"150px"}}>
             Залогиниться
         </button>
