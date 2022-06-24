@@ -44,10 +44,10 @@ const Button = styled.button`
 `
 
 function Console(color, ...props) {
-  console.log(props)
   const [lines, setLines] = useState(['C/users/SKYPRO_REACT>'])
   const [disable, setDisable] = useState(true)
   const [colorTheme, setThemeColor] = useState('green')
+  const [consoleText, setConsoleText] = useState('')
 
   const onKeyPress = (e) => {
     if (e.charCode === 13) {
@@ -57,8 +57,11 @@ function Console(color, ...props) {
   }
 
   const setButton = () => {
-
     setLines([...lines])
+  }
+
+  const clearConsole = () => {
+    setConsoleText('')
   }
 
   const setTheme = () => {
@@ -76,7 +79,7 @@ function Console(color, ...props) {
       {lines.map((line) => (
         <Line key={nextId()} color={colorTheme}>{line}</Line>
       ))}
-      <StyledConsole color={colorTheme} onKeyPress={onKeyPress} {...props} />
+      <StyledConsole value={consoleText} color={colorTheme} onChange={(e) => {setConsoleText(e.target.value)}} onClick={clearConsole} onKeyPress={onKeyPress} {...props} />
       <Button onClick={setButton} disabled={disable} color={colorTheme} >
         Кнопка
       </Button>
