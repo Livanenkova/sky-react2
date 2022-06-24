@@ -61,7 +61,10 @@ function Console(color, ...props) {
   }
 
   const clearConsole = () => {
-    setConsoleText('')
+    if(consoleText !== ''){
+      setDisable(false)
+      setConsoleText('')
+    }
   }
 
   const setTheme = () => {
@@ -71,6 +74,11 @@ function Console(color, ...props) {
       setThemeColor('#29e823')
     }
   }
+
+  const checkConsole = setInterval(
+    () => {if(consoleText !== '') {
+      setDisable(false)
+  }} , 1000);
 
   return (
     <div>
