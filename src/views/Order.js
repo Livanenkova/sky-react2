@@ -1,5 +1,5 @@
 import React from 'react'
-import OrderDetail from './OrderDetail'
+import OrderDetail from '../components/OrderDetail'
 
 export default class Order extends React.Component {
   constructor(props) {
