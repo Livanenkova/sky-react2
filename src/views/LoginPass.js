@@ -2,8 +2,6 @@ import  { useState,useRef } from "react";
 // import { Link} from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 
-
-
 function LoginPass() {
   const [errorMessageStr, errorMessageSet] = useState('');
   const [inputValue, setInputField] = useState({
