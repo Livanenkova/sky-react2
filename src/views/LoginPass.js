@@ -1,5 +1,8 @@
 import  { useState,useRef } from "react";
-import { Link} from 'react-router-dom'
+// import { Link} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+
+
 
 function LoginPass() {
   const [errorMessageStr, errorMessageSet] = useState('');
@@ -7,6 +10,8 @@ function LoginPass() {
     login: '',
     password: '',
   })
+  const navigate = useNavigate();
+
 
   const loginRef = useRef(null)
   const passwordRef = useRef(null)
@@ -33,6 +38,7 @@ function LoginPass() {
       errorMessageSet(`Ваш логин: ${inputValue.login}  Ваш пароль: ${inputValue.password}`);
       loginRef.current.style.border="1px solid grey";
       passwordRef.current.style.border="1px solid grey";
+      navigate('/home');
     }
   }
   
@@ -51,7 +57,6 @@ function LoginPass() {
       <button type="button" onClick={submitButton} style={{width:"150px"}}>
             Залогиниться
         </button>
-      <Link to="/">Main Page</Link>
     </div>
     )
 }

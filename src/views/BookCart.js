@@ -103,7 +103,7 @@ export default function BookCart() {
         booksArray = {books}
         />
       <FormReact/>
-      <Link to="/login-pass">Login Pass</Link>
+      <Link to="/">Login Pass</Link>
       <Link to="/about">About</Link>
     </div>
   )
