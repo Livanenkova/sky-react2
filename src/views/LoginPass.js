@@ -1,6 +1,7 @@
-import  { useState,useRef } from "react";
+import { useState,useRef } from "react";
 // import { Link} from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
+import UserContext from '../contexts/UserContext'
 
 function LoginPass() {
   const [errorMessageStr, errorMessageSet] = useState('');
@@ -10,11 +11,11 @@ function LoginPass() {
   })
   const navigate = useNavigate();
 
-
   const loginRef = useRef(null)
   const passwordRef = useRef(null)
 
   const inputHandler = (e) => {
+    console.log(e.target.value)
     setInputField(() => ({
       ...inputValue,
       [e.target.name]: e.target.value,
@@ -39,8 +40,10 @@ function LoginPass() {
       navigate('/home');
     }
   }
-  
+
     return (
+      
+    <UserContext.Provider value={inputValue.login}>
     <div className="listView">
       <label htmlFor='login'>
         Логин:
@@ -56,6 +59,7 @@ function LoginPass() {
             Залогиниться
         </button>
     </div>
+    </UserContext.Provider>
     )
 }
 

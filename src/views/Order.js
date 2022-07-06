@@ -1,5 +1,7 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import OrderDetail from '../components/OrderDetail'
+
 
 export default class Order extends React.Component {
   constructor(props) {
@@ -105,6 +107,7 @@ export default class Order extends React.Component {
         <p className="total">
           Total Price : <b> /- {`${this.state.quantity}`}</b>
         </p>
+        <Link to="/user-order">User-Order</Link>
       </div>
     )
   }

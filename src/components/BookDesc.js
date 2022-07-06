@@ -17,13 +17,11 @@ const BookDeskCart= styled.div`
   padding: 10px;
 `
 
-
 export default function BookDesk() {
   const location = useLocation();
   const navigate = useNavigate();
   
-  const { description,productName } = location.state 
-  console.log(location)
+  const { description,productName } = location.state
   return (
     <BookDeskWrapper>
       <BookDeskCart>
