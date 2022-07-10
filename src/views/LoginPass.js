@@ -2,13 +2,14 @@ import { useState,useRef } from "react";
 // import { Link} from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 import UserContext from '../contexts/UserContext'
+import UserOrder from "../components/UserOrder";
 
-function LoginPass() {
+function LoginPass(props) {
   const [errorMessageStr, errorMessageSet] = useState('');
-  const [inputValue, setInputField] = useState({
-    login: '',
-    password: '',
-  })
+  // const [inputValue, setInputField] = useState({
+  //   login: '',
+  //   password: '',
+  // })
   const navigate = useNavigate();
 
   const loginRef = useRef(null)
@@ -16,14 +17,14 @@ function LoginPass() {
 
   const inputHandler = (e) => {
     console.log(e.target.value)
-    setInputField(() => ({
-      ...inputValue,
+    props.setInputField(() => ({
+      ...props.inputValue,
       [e.target.name]: e.target.value,
     }));
   };
 
   const submitButton = () => {
-    if(!/@/.test(inputValue.login) && !/.com/.test(loginRef.current.value)){
+    if(!/@/.test(props.inputValue.login) && !/.com/.test(loginRef.current.value)){
       loginRef.current.focus()
       errorMessageSet(`Логин должен быть примерно таким "@domain.com"`);
       loginRef.current.style.border=" 3px solid red";
@@ -34,7 +35,7 @@ function LoginPass() {
       errorMessageSet(`Пароль должен быть длиннее 6 символов!`);
     
     } else {
-      errorMessageSet(`Ваш логин: ${inputValue.login}  Ваш пароль: ${inputValue.password}`);
+      errorMessageSet(`Ваш логин: ${props.inputValue.login}  Ваш пароль: ${props.inputValue.password}`);
       loginRef.current.style.border="1px solid grey";
       passwordRef.current.style.border="1px solid grey";
       navigate('/home');
@@ -43,7 +44,7 @@ function LoginPass() {
 
     return (
       
-    <UserContext.Provider value={inputValue.login}>
+    
     <div className="listView">
       <label htmlFor='login'>
         Логин:
@@ -58,8 +59,9 @@ function LoginPass() {
       <button type="button" onClick={submitButton} style={{width:"150px"}}>
             Залогиниться
         </button>
+        {/* <UserOrder /> */}
     </div>
-    </UserContext.Provider>
+    
     )
 }
 
