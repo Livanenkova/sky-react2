@@ -1,11 +1,8 @@
-import { useState } from 'react'
-import { Link} from 'react-router-dom'
-// import MinMax from './MinMax'
-import GeneralCart from './GeneralCart' 
-import MinMaxLazy from './components/MinMaxLazy'
-// import LoginPass from './page/LoginPass'
-import FormReact from './FormReact'
-import NumberGenerator from './NumberGenerator'
+import {useState} from 'react'
+import {Link} from 'react-router-dom'
+import GeneralCart from '../components/GeneralCart' 
+import MinMaxLazy from '../components/MinMaxLazy'
+import FormReact from '../components/FormReact'
 
 function booksStub() {
   return [
@@ -106,8 +103,7 @@ export default function BookCart() {
         booksArray = {books}
         />
       <FormReact/>
-      <NumberGenerator/>
-      <Link to="/login-pass">Login Pass</Link>
+      <Link to="/">Login Pass</Link>
       <Link to="/about">About</Link>
     </div>
   )
