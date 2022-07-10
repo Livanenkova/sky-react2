@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Link} from 'react-router-dom'
 import OrderDetail from '../components/OrderDetail'
 
 
@@ -50,36 +50,17 @@ export default class Order extends React.Component {
     this.DecrementQuantityWithPrice = this.DecrementQuantityWithPrice.bind(this);
     this.IncrementQuantityWithPrice = this.IncrementQuantityWithPrice.bind(this);
   }
+  
 
   IncrementQuantityWithPrice(e, index,price) {
     e.preventDefault() 
     this.setState(state => ({quantity: state.quantity + 1}))
     this.setState(state => ({amount: state.amount + price }))
 
-    
-    // const data = this.state.details.map((details) => {
-    //   if (details.id === index) {
-    //     return {
-    //       id: details.id,
-    //       productName: details.productName,
-    //       price: details.price,
-    //       quantity: details.quantity + 1,
-    //     }
-    //   }
-    //   return {
-    //     id: details.id,
-    //     productName: details.productName,
-    //     price: details.price,
-    //     quantity: details.quantity,
-    //   }
-    // })
   }
 
   DecrementQuantityWithPrice(e, index,price) {
     e.preventDefault()
-    // this.setState((prevState) => ({ quantity: prevState.state.quantity - 1 }))
-    // this.setState(state => ({quantity: state.quantity -1}))
-    // this.setState(state => ({quantity: state.amount - price }))
     this.setState((prevState) => ({ quantity: prevState.quantity - 1 }))
     this.setState((prevState) => ({ amount: prevState.amount - price }))
   }
@@ -107,7 +88,7 @@ export default class Order extends React.Component {
         <p className="total">
           Total Price : <b> /- {`${this.state.quantity}`}</b>
         </p>
-        <Link to="/user-order">User-Order</Link>
+        <Link to="/user-order" state={this.state}>User-Order</Link>
       </div>
     )
   }

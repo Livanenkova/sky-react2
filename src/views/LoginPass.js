@@ -1,15 +1,9 @@
 import { useState,useRef } from "react";
 // import { Link} from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
-import UserContext from '../contexts/UserContext'
-import UserOrder from "../components/UserOrder";
 
 function LoginPass(props) {
   const [errorMessageStr, errorMessageSet] = useState('');
-  // const [inputValue, setInputField] = useState({
-  //   login: '',
-  //   password: '',
-  // })
   const navigate = useNavigate();
 
   const loginRef = useRef(null)
@@ -43,7 +37,6 @@ function LoginPass(props) {
   }
 
     return (
-      
     
     <div className="listView">
       <label htmlFor='login'>
@@ -54,14 +47,13 @@ function LoginPass(props) {
         Пароль:
       <input type="password" ref={passwordRef} name="password" onChange={inputHandler} className="password" placeholder='password' id='password'/>
       </label>
+      
       <div>{errorMessageStr}</div>
 
       <button type="button" onClick={submitButton} style={{width:"150px"}}>
             Залогиниться
         </button>
-        {/* <UserOrder /> */}
     </div>
-    
     )
 }
 

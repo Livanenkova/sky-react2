@@ -20,6 +20,7 @@ function App() {
   const [inputValue, setInputField] = useState({
     login: '',
     password: '',
+    name: '',
   })
   return (
     <Routes >
@@ -29,8 +30,8 @@ function App() {
       <Route path="/book-cart" element={<BookCart />} />
       <Route path="/home" element={<Order />} />
       <Route path="/book-desk" element={<BookDesk />} />
-      <Route path="/user-order" element={<UserContext.Provider value={inputValue.login}><UserOrder /></UserContext.Provider>} />
-      <Route path="/order-ready" element={<OrderReady />} />
+      <Route path="/user-order" element={<UserContext.Provider value={inputValue}><UserOrder inputValue={inputValue} setInputField={setInputField} /></UserContext.Provider>} />
+      <Route path="/order-ready" element={<UserContext.Provider value={inputValue} ><OrderReady /></UserContext.Provider>} />
     </Routes>
 
   
