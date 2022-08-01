@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link} from 'react-router-dom'
+import axios from 'axios';
 import OrderDetail from '../components/OrderDetail'
 
 
@@ -9,48 +10,20 @@ export default class Order extends React.Component {
     this.state = {
       amount: 0,
       quantity: 0,
-      details: [
-        {
-          id: 1,
-          productName: 'Война и мир - Л.Н.Толстой',
-          price: 800,
-          quantity: 0,
-          description:'«Война́ и мир» (рус. дореф. «Война и миръ») — роман-эпопея Льва Николаевича Толстого, описывающий русское общество в эпоху войн против Наполеона в 1805—1812 годах. Эпилог романа доводит повествование до 1820 года.',
-        },
-        {
-          id: 2,
-          productName: 'Две жизни - К.Е.Антарова',
-          price: 700,
-          quantity: 0,
-          description:'В книге Конкордии Евгеньевны Антаровой "Две жизни" впервые в беллетристической форме даются яркие и глубокие образы Великих Учителей, выписанные с огромной любовью, показан их самоотверженный труд на благо человечества. Учение, изложенное в книгах "Живой Этики", как бы проиллюстрировано судьбами героев книги "Две жизни".',
-        },
-        {
-          id: 3,
-          productName: 'Разговор с богом - Н.Д.Уолша',
-          price: 1000,
-          quantity: 0,
-          description:'Перед читателем - необычный документ нашего времени: послание от Бога - своеобразная программа духовной революции, исчерпывающая все сферы познания и деятельности человека - от сугубо личной до планетарной.',
-        },
-        {
-          id: 4,
-          productName: 'Хохот Шамана - В.П.Серкин',
-          price: 600,
-          quantity: 0,
-          description:'В 1997 году психолог Владимир Серкин случайно познакомился с человеком, которого все окружающие считали шаманом.',
-        },
-        {
-          id: 5,
-          productName: 'Хроники Ехо - Макс Фрай',
-          price: 400,
-          quantity: 0,
-          description:'Серия книг от одного из самого известного автора современности Макса Фрая, истории про Вселенную Ехо',
-        },
-      ],
+      details: [],
     }
     this.DecrementQuantityWithPrice = this.DecrementQuantityWithPrice.bind(this);
     this.IncrementQuantityWithPrice = this.IncrementQuantityWithPrice.bind(this);
   }
   
+  componentDidMount() {
+    axios.get(`https://api.jsonbin.io/v3/b/62e7a8bc1c7f436f211a9a3d`)
+    .then(res => {
+      const details = res.data.record;
+      this.setState({ details });
+      console.log('GET Axios',details)
+    })
+  }
 
   IncrementQuantityWithPrice(e, index,price) {
     e.preventDefault() 
@@ -72,8 +45,8 @@ export default class Order extends React.Component {
         id={details.id}
         description={details.description}
         productName={details.productName}
-        price={details.price}
-        quantity={details.quantity}
+        price={Number(details.price)}
+        quantity={Number(details.quantity)}
         increment={this.IncrementQuantityWithPrice}
         decrement={this.DecrementQuantityWithPrice}
       />

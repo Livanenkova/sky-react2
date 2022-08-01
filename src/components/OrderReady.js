@@ -4,7 +4,6 @@ import { useContext } from "react";
 import {useLocation } from 'react-router-dom'
 import UserContext from '../contexts/UserContext'
 
-
 const OrderReadyWrapper = styled.div`
   padding: 10px;
   margin-top: 20px;
@@ -15,9 +14,7 @@ const OrderReadyWrapper = styled.div`
 
 export default function orderReady() {
   const userInfo = useContext(UserContext)
-  console.log(userInfo)
   const location = useLocation();
-  console.log(location.state.state)
   return (
     <OrderReadyWrapper>
       <p>{`Имя: ${userInfo.name}`}</p>

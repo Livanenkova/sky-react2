@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import {Link} from 'react-router-dom'
+import axios from 'axios';
 import GeneralCart from '../components/GeneralCart' 
 import MinMaxLazy from '../components/MinMaxLazy'
 import FormReact from '../components/FormReact'
@@ -45,6 +46,17 @@ function booksStub() {
 }
 export default function BookCart() {
   const [books, setBooks] = useState(booksStub())
+  // const [books, setBooks] = useState([])
+
+  // useEffect(() => {
+  //   // Обновляем заголовок документа с помощью API браузера
+  //   axios.get(`https://api.jsonbin.io/v3/b/62e7a8bc1c7f436f211a9a3d`)
+  //   .then(res => {
+  //     const details = res.data.record;
+  //     console.log('GET Axios',details);
+  //     setBooks(details)
+  //   })
+  // });
 
   const setQuantity = (id, quantity) => {
     setBooks(
