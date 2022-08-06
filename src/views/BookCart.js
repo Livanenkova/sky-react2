@@ -1,11 +1,8 @@
-import { useState } from 'react'
-import { Link} from 'react-router-dom'
-// import MinMax from './MinMax'
-import GeneralCart from './GeneralCart' 
-import MinMaxLazy from './components/MinMaxLazy'
-// import LoginPass from './page/LoginPass'
-import FormReact from './FormReact'
-import NumberGenerator from './NumberGenerator'
+import {useState} from 'react'
+import {Link} from 'react-router-dom'
+import GeneralCart from '../components/GeneralCart' 
+import MinMaxLazy from '../components/MinMaxLazy'
+import FormReact from '../components/FormReact'
 
 function booksStub() {
   return [
@@ -48,6 +45,16 @@ function booksStub() {
 }
 export default function BookCart() {
   const [books, setBooks] = useState(booksStub())
+  // const [books, setBooks] = useState([])
+
+  // useEffect(() => {
+  //   // Обновляем заголовок документа с помощью API браузера
+  //   axios.get(`https://api.jsonbin.io/v3/b/62e7a8bc1c7f436f211a9a3d`)
+  //   .then(res => {
+  //     const details = res.data.record;
+  //     setBooks(details)
+  //   })
+  // });
 
   const setQuantity = (id, quantity) => {
     setBooks(
@@ -106,8 +113,7 @@ export default function BookCart() {
         booksArray = {books}
         />
       <FormReact/>
-      <NumberGenerator/>
-      <Link to="/login-pass">Login Pass</Link>
+      <Link to="/">Login Pass</Link>
       <Link to="/about">About</Link>
     </div>
   )

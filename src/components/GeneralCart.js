@@ -4,9 +4,7 @@
 
 import propTypes from "prop-types"
 
-
 function GeneralCart({ booksArray}) {
-  console.log(typeof booksArray)
   const booksTotalCell = booksArray.reduce(
     (result, book) =>
       (result += Number(book.price) * Number(book.quantity)),
@@ -19,14 +17,11 @@ function GeneralCart({ booksArray}) {
     0
   )
   return (
-    
-    
     <div>
       <h3>Total: {booksTotalCell}</h3>
       <h3>Book number : {booksNumber}</h3>
     </div>
   )
-  
 }
 
 GeneralCart.propTypes = {
