@@ -28,14 +28,6 @@ const BtnReturn = styled.button`
   border-radius: 5px;
 `
 
-// const BtnSend = styled.button`
-//   background: green;
-//   color: white;
-//   padding: 7px;
-//   border: none;
-//   border-radius: 5px;
-// `
-
 const BtnWrapper = styled.div`
   display: flex;
   flex-direction: row;

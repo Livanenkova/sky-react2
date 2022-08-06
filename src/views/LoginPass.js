@@ -1,8 +1,8 @@
 import { useState,useRef } from "react";
-// import { Link} from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 
 function LoginPass(props) {
+  console.log('loginPass',props)
   const [errorMessageStr, errorMessageSet] = useState('');
   const navigate = useNavigate();
 

@@ -13,6 +13,7 @@ import BookDesk from './components/BookDesc'
 import UserOrder from './components/UserOrder'
 import UserContext from './contexts/UserContext';
 import OrderReady from './components/OrderReady';
+import NumberGenerator from './page/NumberGenerator';
 
 // const history = createBrowserHistory()
 
@@ -30,11 +31,10 @@ function App() {
       <Route path="/book-cart" element={<BookCart />} />
       <Route path="/home" element={<Order />} />
       <Route path="/book-desk" element={<BookDesk />} />
+      <Route path="/number-generator" element={<NumberGenerator />} />
       <Route path="/user-order" element={<UserContext.Provider value={inputValue}><UserOrder inputValue={inputValue} setInputField={setInputField} /></UserContext.Provider>} />
       <Route path="/order-ready" element={<UserContext.Provider value={inputValue} ><OrderReady /></UserContext.Provider>} />
     </Routes>
-
-  
   )
 }
 
